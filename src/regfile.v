@@ -11,7 +11,8 @@ module regfile(
 
     input      [31:0]   wdata,
     output reg [31:0]   rs1,
-    output reg [31:0]   rs2
+    output reg [31:0]   rs2,
+    output reg  [3:0]   t0 // output t0 to led
 );
 
     reg        [31:0]   regfile [31:0];
@@ -31,6 +32,7 @@ module regfile(
     end
 
     always @(*) begin
+        t0 = regfile[5][3:0]; // output t0 to led
         if(!re1)
             rs1 = 0;
         else if (re1 && ra1 != 0) begin

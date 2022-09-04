@@ -1,4 +1,5 @@
 module cpu(
+    output [3:0] led,
     input       clk,
     input       reset
 );
@@ -109,6 +110,9 @@ module cpu(
         .ra1(RS1_ADDR),     // input register source 1 address
         .ra2(RS2_ADDR),     // input register source 2 address
         .wa(WADDR),         // input register destination address
+
+        //output led
+        .t0(led),
         
         // alu
         .wdata(WB_DATA),    // input register destination value  (not implemented)
